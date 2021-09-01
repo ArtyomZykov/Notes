@@ -9,5 +9,8 @@
     <string name="room">Room</string>
     <string name="firebase">Firebase</string>
     <string name="title">Заметки</string>
-    <string name="toast_enter_name">Вы не ввели имя своей заметки</string>
+    <string name="toast_enter_name">Ошибка ввода данных</string>
+    <string name="email">email</string>
+    <string name="password">password</string>
+    <string name="login">login</string>
 </resources>
