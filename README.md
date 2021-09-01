@@ -1,0 +1,2 @@
+# Notes
+MVVM (Google architecture)
