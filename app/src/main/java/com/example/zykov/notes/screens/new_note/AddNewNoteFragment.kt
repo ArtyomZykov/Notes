@@ -8,11 +8,9 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.zykov.notes.R
 import com.example.zykov.notes.databinding.FragmentAddNewNoteBinding
-import com.example.zykov.notes.databinding.FragmentMainBinding
-import com.example.zykov.notes.databinding.FragmentStartBinding
-import com.example.zykov.notes.screens.start.StartFragmentViewModel
+import com.example.zykov.notes.models.AppNote
 import com.example.zykov.notes.utilites.APP_ACTIVITY
-import com.example.zykov.notes.utilites.TYPE_ROOM
+import com.example.zykov.notes.utilites.showToast
 
 class AddNewNoteFragment : Fragment() {
     private var _binding: FragmentAddNewNoteBinding? = null
@@ -35,7 +33,15 @@ class AddNewNoteFragment : Fragment() {
     private fun initialization() {
         mViewModel = ViewModelProvider(this).get(AddNewNoteFragmentViewModel::class.java)
         mBinding.btnAddNode.setOnClickListener {
-            // fun in ViewModel
+            val name = mBinding.imputNameNode.text.toString()
+            val text = mBinding.imputTextNode.text.toString()
+            if (name.isEmpty()) {
+                showToast(getString(R.string.toast_enter_name))
+            } else {
+                mViewModel.insert(AppNote(name = name, text = text)) {
+                    APP_ACTIVITY.navController.navigate(R.id.action_addNewNoteFragment_to_mainFragment)
+                }
+            }
         }
     }
 

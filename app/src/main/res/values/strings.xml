@@ -9,4 +9,5 @@
     <string name="room">Room</string>
     <string name="firebase">Firebase</string>
     <string name="title">Заметки</string>
+    <string name="toast_enter_name">Вы не ввели имя своей заметки</string>
 </resources>
